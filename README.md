@@ -43,16 +43,14 @@ dependencies {
 
 # How to register a command?
 
-Registering a command is quite easy
-
 ```java
-CommandLoader.registerCommand(String name, CommandExecutor executor, TabCompleter completer)
+CommandLoader.registerCommand(String configPath, CommandExecutor executor, TabCompleter completer)
 ```
 
-or alternatively, if you do not want to use a tab completer
+or alternatively, If you do not want to use a tab completer
 
 ```java
-CommandLoader.registerCommand(String name, CommandExecutor executor)
+CommandLoader.registerCommand(String configPath, CommandExecutor executor)
 ```
 
 # Examples
