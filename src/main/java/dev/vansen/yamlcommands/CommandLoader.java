@@ -12,11 +12,11 @@ import java.util.concurrent.CompletableFuture;
 
 public class CommandLoader {
 
-    public void registerCommand(String configPath, CommandExecutor executor) {
+    public static void registerCommand(String configPath, CommandExecutor executor) {
         registerCommand(configPath, executor, null);
     }
 
-    public void registerCommand(String configPath, CommandExecutor executor, TabCompleter completer) {
+    public static void registerCommand(String configPath, CommandExecutor executor, TabCompleter completer) {
         CompletableFuture.runAsync(() -> {
             File configFile = new File(PluginHolder.getPluginInstance().getDataFolder(), "commands.yml");
             if (!configFile.exists()) {
@@ -29,7 +29,7 @@ public class CommandLoader {
                 return;
             }
 
-            String command = config.getString(configPath + ".command", "null");
+            String command = config.getString(configPath + ".name", "null");
             String namespace = config.getString(configPath + ".namespace", "null");
             String permission = config.getString(configPath + ".permission", "null");
             List<String> aliases = config.getStringList(configPath + ".aliases");
