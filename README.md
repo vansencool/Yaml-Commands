@@ -34,7 +34,7 @@ dependencies {
     <artifactId>PluginSimplifier</artifactId>
     <version>1.0.6</version>
 </dependency>
-    <dependency>
+<dependency>
     <groupId>com.github.vansencool</groupId>
     <artifactId>Yaml-Commands</artifactId>
     <version>1.0.6</version>
