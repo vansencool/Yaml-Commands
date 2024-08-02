@@ -16,14 +16,14 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation 'com.github.vansencool:Yaml-Commands:1.0.0'
+    implementation 'com.github.max1mde:PluginSimplifier:1.0.3'
+    implementation 'com.github.vansencool:Yaml-Commands:1.0.1'
 }
 ```
 
 **Maven**
 
 ```xml
-
 <repository>
     <id>jitpack.io</id>
     <url>https://jitpack.io</url>
@@ -31,11 +31,15 @@ dependencies {
 ```
 
 ```xml
-
+<dependency>
+    <groupId>com.github.max1mde</groupId>
+    <artifactId>PluginSimplifier</artifactId>
+    <version>1.0.3</version>
+</dependency>
 <dependency>
     <groupId>com.github.vansencool</groupId>
     <artifactId>Yaml-Commands</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
