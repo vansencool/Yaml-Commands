@@ -38,10 +38,10 @@ dependencies {
     <artifactId>PluginSimplifier</artifactId>
     <version>1.0.6</version>
 </dependency>
-<dependency>
-<groupId>com.github.vansencool</groupId>
-<artifactId>Yaml-Commands</artifactId>
-<version>1.0.3</version>
+    <dependency>
+    <groupId>com.github.vansencool</groupId>
+    <artifactId>Yaml-Commands</artifactId>
+    <version>1.0.3</version>
 </dependency>
 ```
 
