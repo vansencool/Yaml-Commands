@@ -4,8 +4,6 @@ Library which allows users to customize commands using a yaml file
 
 # How to install it?
 
-Starting to use it is quite simple
-
 **Gradle**
 
 ```groovy
@@ -17,14 +15,13 @@ repositories {
 ```groovy
 dependencies {
     implementation 'com.github.max1mde:PluginSimplifier:1.0.6'
-    implementation 'com.github.vansencool:Yaml-Commands:1.0.3'
+    implementation 'com.github.vansencool:Yaml-Commands:1.0.4'
 }
 ```
 
 **Maven**
 
 ```xml
-
 <repository>
     <id>jitpack.io</id>
     <url>https://jitpack.io</url>
@@ -32,7 +29,6 @@ dependencies {
 ```
 
 ```xml
-
 <dependency>
     <groupId>com.github.max1mde</groupId>
     <artifactId>PluginSimplifier</artifactId>
@@ -41,7 +37,7 @@ dependencies {
     <dependency>
     <groupId>com.github.vansencool</groupId>
     <artifactId>Yaml-Commands</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 </dependency>
 ```
 
@@ -59,11 +55,9 @@ or alternatively, if you do not want to use a tab completer
 CommandLoader.registerCommand(String name, CommandExecutor executor)
 ```
 
-providing a "null" value to the name or executor will most probably result in a exception
-
 # Examples
 
-Here's a full example on how this works
+Here's a full example on how this works:
 
 ```java
 package com.example.plugin;
@@ -117,6 +111,6 @@ commands:
 
 # Notes
 
-There is no need to register the command in plugin.yml or paper-plugin.yml
+There is no need to register the command in plugin.yml or paper-plugin.yml.
 
-Be sure to shade the library
+Be sure to shade the library.
