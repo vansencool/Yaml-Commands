@@ -102,6 +102,7 @@ Now, here's how the commands.yml should look like:
 ```yaml
 commands:
   example:
+    enabled: true
     name: "example"
     namespace: "myplugin"
     description: "example command"
