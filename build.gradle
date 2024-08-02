@@ -4,22 +4,22 @@ plugins {
 }
 
 group = 'com.vansen'
-version = '1.0.3'
+version = '1.0.4'
 
 repositories {
     mavenCentral()
     maven { url 'https://repo.papermc.io/repository/maven-public/' }
-    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation 'com.github.max1mde:PluginSimplifier:1.0.6'
     compileOnly 'io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT'
+    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20'
+    compileOnly 'org.jetbrains:annotations:24.0.1'
 }
 
 tasks.jar {
-    archiveBaseName.set('YamlCommands')
-    archiveVersion.set(version)
+    archiveBaseName = 'PluginSimplifier'
+    archiveVersion = version
 
     exclude 'kotlin/**'
     exclude 'org/intellij/**'
