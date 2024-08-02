@@ -20,7 +20,7 @@ public class CommandLoader {
         CompletableFuture.runAsync(() -> {
             File configFile = new File(PluginHolder.getPluginInstance().getDataFolder(), "commands.yml");
             if (!configFile.exists()) {
-                PluginHolder.getPluginInstance().getLogger().warning("commands.yml not found in the data folder");
+                PluginHolder.getPluginInstance().saveResource("commands.yml", false);
             }
 
             YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
@@ -29,6 +29,7 @@ public class CommandLoader {
                 return;
             }
 
+            boolean enabled = config.getBoolean(configPath + ".enabled", false);
             String command = config.getString(configPath + ".name", "null");
             String namespace = config.getString(configPath + ".namespace", "null");
             String permission = config.getString(configPath + ".permission", "null");
@@ -36,16 +37,18 @@ public class CommandLoader {
             String description = config.getString(configPath + ".description", "null");
             String usage = config.getString(configPath + ".usage", "null");
 
-            CommandRegistrar.registerCommand(
-                    command,
-                    executor,
-                    namespace,
-                    usage,
-                    description,
-                    aliases,
-                    permission,
-                    completer
-            );
+            if (enabled) {
+                CommandRegistrar.registerCommand(
+                        command,
+                        executor,
+                        namespace,
+                        usage,
+                        description,
+                        aliases,
+                        permission,
+                        completer
+                );
+            }
         });
     }
 }
