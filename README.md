@@ -15,7 +15,7 @@ repositories {
 ```groovy
 dependencies {
     implementation 'com.github.max1mde:PluginSimplifier:1.0.6'
-    implementation 'com.github.vansencool:Yaml-Commands:1.0.6'
+    implementation 'com.github.vansencool:Yaml-Commands:1.0.4'
 }
 ```
 
@@ -39,7 +39,7 @@ dependencies {
 <dependency>
 <groupId>com.github.vansencool</groupId>
 <artifactId>Yaml-Commands</artifactId>
-<version>1.0.6</version>
+<version>1.0.4</version>
 </dependency>
 ```
 
