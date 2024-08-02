@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.vansen'
-version = '1.0.2'
+version = '1.0.3'
 
 repositories {
     mavenCentral()
@@ -20,6 +20,10 @@ dependencies {
 tasks.jar {
     archiveBaseName.set('YamlCommands')
     archiveVersion.set(version)
+
+    exclude 'kotlin/**'
+    exclude 'org/intellij/**'
+    exclude 'org/jetbrains/**'
 }
 
 publishing {
