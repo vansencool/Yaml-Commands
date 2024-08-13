@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'com.vansen'
+group = 'dev.vansen'
 version = '1.0.7'
 
 repositories {
