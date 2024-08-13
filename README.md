@@ -44,13 +44,13 @@ dependencies {
 # How to register a command?
 
 ```java
-CommandLoader.registerCommand(String configPath, CommandExecutor executor, TabCompleter completer)
+CommandLoader.register(String configPath, CommandExecutor executor, TabCompleter completer)
 ```
 
 or alternatively, If you do not want to use a tab completer
 
 ```java
-CommandLoader.registerCommand(String configPath, CommandExecutor executor)
+CommandLoader.register(String configPath, CommandExecutor executor)
 ```
 
 # Examples
