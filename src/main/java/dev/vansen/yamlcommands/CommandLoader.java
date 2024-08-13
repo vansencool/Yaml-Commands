@@ -12,11 +12,11 @@ import java.util.concurrent.CompletableFuture;
 
 public class CommandLoader {
 
-    public static void registerCommand(String configPath, CommandExecutor executor) {
-        registerCommand(configPath, executor, null);
+    public static void register(String configPath, CommandExecutor executor) {
+        register(configPath, executor, null);
     }
 
-    public static void registerCommand(String configPath, CommandExecutor executor, TabCompleter completer) {
+    public static void register(String configPath, CommandExecutor executor, TabCompleter completer) {
         CompletableFuture.runAsync(() -> {
             File configFile = new File(PluginHolder.getPluginInstance().getDataFolder(), "commands.yml");
             if (!configFile.exists()) {
@@ -38,16 +38,14 @@ public class CommandLoader {
             String usage = config.getString(configPath + ".usage", "null");
 
             if (enabled) {
-                CommandRegistrar.registerCommand(
-                        command,
-                        executor,
-                        namespace,
-                        usage,
-                        description,
-                        aliases,
-                        permission,
-                        completer
-                );
+                CommandRegistrar.command(command, executor)
+                        .namespace(namespace)
+                        .usage(usage)
+                        .description(description)
+                        .aliases(aliases)
+                        .permission(permission)
+                        .completer(completer)
+                        .register();
             }
         });
     }
