@@ -7,9 +7,9 @@ import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+@SuppressWarnings("unused")
 public class CommandLoader {
 
     public static void register(String configPath, CommandExecutor executor) {
@@ -25,25 +25,17 @@ public class CommandLoader {
 
             YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
             if (!config.contains(configPath)) {
-                PluginHolder.getPluginInstance().getLogger().warning("Command configuration for " + configPath + " not found in commands.yml");
-                return;
+                PluginHolder.getPluginInstance().getLogger().warning("Command configuration for " + configPath + " not found in commands.yml (it will still try to register the command)");
             }
 
-            boolean enabled = config.getBoolean(configPath + ".enabled", false);
-            String command = config.getString(configPath + ".name", "null");
-            String namespace = config.getString(configPath + ".namespace", "null");
-            String permission = config.getString(configPath + ".permission", "null");
-            List<String> aliases = config.getStringList(configPath + ".aliases");
-            String description = config.getString(configPath + ".description", "null");
-            String usage = config.getString(configPath + ".usage", "null");
-
-            if (enabled) {
-                CommandRegistrar.command(command, executor)
-                        .namespace(namespace)
-                        .usage(usage)
-                        .description(description)
-                        .aliases(aliases)
-                        .permission(permission)
+            if (config.getBoolean(configPath + ".enabled", true)) {
+                CommandRegistrar.command(config.getString(configPath + ".name", configPath.split("\\.")[configPath.split("\\.").length - 1]), executor)
+                        .namespace(config.getString(configPath + ".namespace", PluginHolder.getPluginInstance().getPluginMeta().getName()))
+                        .usage(config.getString(configPath + ".usage", "null"))
+                        .description(config.getString(configPath + ".description", "null"))
+                        .aliases(config.getStringList(configPath + ".aliases"))
+                        .permission(config.getString(configPath + ".permission", "null"))
+                        .permissionMessage(config.getString(configPath + ".permission_message", "null"))
                         .completer(completer)
                         .register();
             }
