@@ -69,7 +69,7 @@ import org.jetbrains.annotations.NotNull;
 public class ExampleCommand implements CommandExecutor {
 
     public ExampleCommand() {
-        CommandLoader.registerCommand("commands.example", this);
+        CommandLoader.register("commands.example", this);
     }
 
     @Override
