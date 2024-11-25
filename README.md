@@ -1,3 +1,11 @@
+# Warning ⚠️
+
+> **This repository is outdated!**  
+> Use with caution. While it still works, it is not actively maintained and may not be the best solution for your project.  
+> Consider alternatives or ensure you understand the potential risks before using it.
+
+![Outdated Badge](https://img.shields.io/badge/Status-Outdated-red)
+
 # Yaml-Commands
 
 Library which allows users to customize commands using a yaml file
